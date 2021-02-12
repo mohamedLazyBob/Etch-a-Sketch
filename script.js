@@ -5,6 +5,7 @@ let cellLength = gridContainerLength / cellsNumber;
 grid.addEventListener('mouseover', e => {
 	if (e.target.className === 'cell') {
 		e.target.style.background = 'rgba(0, 0, 0, 0)';
+		e.target.style.border = 'rgba(0, 0, 0, 0)';
 	}
 });
 
