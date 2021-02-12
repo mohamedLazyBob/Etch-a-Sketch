@@ -4,14 +4,22 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style_input_range.css">
 	<link rel="stylesheet" href="style.css">
 	<title>Eatch A Sketch</title>
 </head>
 <body>
 	<main>
-		<div class="grid">
-		</div>
-		<button class="clr-btn">clear</button>
+		<label for="cells-num"> Cells Number <br>
+			<input type="range" name="Cells Counter"
+			 id="cells-num" min="4" max="60" step="2">
+			<!-- <datalist id="marks">
+				<option value="4"></option>
+				<option value="100"></option>
+			</datalist> -->
+		</label>
+		<div id="grid"></div>
+		<button class="clr-btn" id='clrBtn'>clear</button>
 	</main>
 	
 	<script src="script.js"></script>

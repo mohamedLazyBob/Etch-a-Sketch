@@ -1,27 +1,37 @@
 const gridContainerLength = 800;
-const cellsNumber = 20;
-let cellLength = gridContainerLength / cellsNumber; 
+let cellsNumber = 20; // max of this is 64, more then it, it's not beatifull 
+let cellLength = gridContainerLength / cellsNumber;
 
-let grid = document.querySelector('.grid');
-for (let i = 0; i < (cellsNumber ** 2); i++) {
-	let cell = document.createElement('div');
-	cell.style.cssText = `width: ${cellLength}px;
+grid.addEventListener('mouseover', e => {
+	if (e.target.className === 'cell') {
+		e.target.style.background = 'rgba(0, 0, 0, 0)';
+	}
+});
+
+function drawGrid() {
+	grid.innerHTML = "";
+	cellLength = gridContainerLength / cellsNumber;
+	for (let i = 0; i < (cellsNumber ** 2); i++) {
+		let cell = document.createElement('div');
+		cell.style.cssText = `width: ${cellLength}px;
 							height: ${cellLength}px`;
-	cell.classList.add("cell");
-	grid.appendChild(cell);
-	// console.log(i);
+		cell.classList.add("cell");
+		grid.appendChild(cell);
+	}
 }
 
-let cells = document.querySelectorAll('.cell');
-cells.forEach((cell) => {
-	cell.addEventListener('mouseenter', (e) => {
-		if (e.fromElement.className === 'cell') {
-			e.fromElement.style.background = 'rgba(0, 0, 0, 0)';
-		}
-	});
-	cell.addEventListener('mouseout', (e) => {
-		if (e.fromElement.className === 'cell') {
-			e.fromElement.style.background = 'rgba(0, 0, 0, 0)';
-		}
-	});
+drawGrid();
+
+let rangeObject = document.querySelector('input[type=range]');
+rangeObject.value = cellsNumber;
+
+rangeObject.addEventListener('change', () => {
+	cellsNumber = rangeObject.value;
+	drawGrid();
+});
+
+clrBtn.addEventListener('click', e => {
+	for (let i = 0; i < grid.children.length; i++) {
+		grid.children.item(i).style.background = 'rgb(107,85,164)';
+	}
 });
