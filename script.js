@@ -36,3 +36,10 @@ clrBtn.addEventListener('click', e => {
 		grid.children.item(i).style.background = 'rgb(107,85,164)';
 	}
 });
+
+let btns = document.querySelectorAll('input[type=checkbox]')
+console.log(btns);
+
+// btns.item(1).checked = true
+
+// btns.forea

@@ -16,40 +16,42 @@ html {
 }
 
 body {
-	/* background: url("./imgs/background-1.png"); */
-	background-image: url("./imgs/background-1.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-position-x: center;
-	
 	background-color: rgb(167,139,193);
-
+	/* background-position-x: center; */
+	
 	box-sizing: border-box;
 	height: 100%;
 	width: 100%;
 	
 	overflow: auto;
+	position: relative;
 }
 
-main {
-	border: 1px solid red;
-	padding: 10px;
-	box-sizing: border-box;
-	margin: 20px auto;
 
-	height: 100%;
-	width: 100%;
-	min-height: 100vh;
-	min-width: 100vw;
-	/* overflow: auto; */
+main {
+	/* border: 2px solid yellow; */
+	box-sizing: border-box;
 
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
+@media all and (min-height: 1100px) {
+	main {
+		justify-content: center;
+	}
 }
 
 #grid {
+	background-image: url("./imgs/background-1.png");
+	background-repeat: no-repeat;
+	background-position: center;
+
 	box-sizing: content-box;
 	border: 3px solid #A8DADC;
 	border-radius: 10px;
@@ -109,7 +111,7 @@ label {
 	margin: 0 auto;
 	box-sizing: border-box;
 
-	border: 1px solid red;	
+	/* border: 1px solid red;	 */
 
 	display: flex;
 	flex-wrap: nowrap;
@@ -117,11 +119,55 @@ label {
 
 .theme-picker img {
 	width: 150px;
-	/* height: 100px; */
-
-	margin: 5px;
-
-	border: 1px solid rgba(0,0,0, 0.1);
-	border-radius: 5px;
 }
+
 /* ------------------------------------------------------- */
+  
+input[type=checkbox] {
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+input[type=checkbox]:checked + .theme-picker-element:after {
+	transform: scale(4.2);
+}
+  
+.theme-picker-element{
+	outline: none;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+		-ms-user-select: none;
+			user-select: none;
+	color: #000;
+	font-family: "Lato", sans-serif;
+	font-size: 2.5rem;
+	letter-spacing: 0.04rem;
+	/* padding: 1.5rem 3rem; */
+	margin-right: 1rem;
+	padding: 0px 0px;
+	cursor: pointer;
+	border-radius: 0.4rem;
+	/* border: 0.3rem solid #000; */
+	background: #fff;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0 3px 0 0 #000;
+}
+
+.theme-picker-element::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	transform: scale(0);
+	transition: transform 0.3s ease-in;
+	mix-blend-mode: difference;
+	background: radial-gradient(circle at center, #fff 24%, #000 25%, #000 100%);
+}
+
+.theme-picker-element:active {
+	top: 3px;
+	box-shadow: none;
+}

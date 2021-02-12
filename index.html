@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,25 +9,55 @@
 	<link rel="stylesheet" href="style.css">
 	<title>Eatch A Sketch</title>
 </head>
+
 <body>
 	<main>
-		<label for="cells-num"> Cells Number <br>
-			<input type="range" name="Cells Counter"
-			 id="cells-num" min="4" max="60" step="2">
+		<!-- <label for="cells-num"> Cells Number <br> -->
+		<label for="cells-num">
+			<input type="range" name="Cells Counter" id="cells-num" min="4" max="60" step="2">
 		</label>
 		<div id="grid"></div>
 		<button class="clr-btn" id='clrBtn'>Reset</button>
 		<div class="theme-picker">
-			<img src="./imgs/background-1.png" alt="background Image Option">
-			<img src="./imgs/background-2.png" alt="Background Image Option">
-			<img src="./imgs/background-3.png" alt="Background Image Option">
+
+			<input type="checkbox" id="back-1" />
+			<label for="back-1" class="theme-picker-element">
+				<img src="./imgs/background-1.png" alt="background Image Option">
+			</label>
+
+			<input type="checkbox" id="back-2" />
+			<label for="back-2" class="theme-picker-element">
+				<img src="./imgs/background-2.png" alt="Background Image Option">
+			</label>
+
+			<input type="checkbox" id="back-3" />
+			<label for="back-3" class="theme-picker-element">
+				<img src="./imgs/background-3.png" alt="Background Image Option">
+			</label>
+
+			<input type="checkbox" id="back-4" />
+			<label for="back-4" class="theme-picker-element">
 			<img src="./imgs/background-4.jpg" alt="Background Image Option">
-			<img src="./imgs/background-5.png" alt="Background Image Option">
-			<img src="./imgs/background-6.png" alt="Background Image Option">
+			</label>
+
+			<input type="checkbox" id="back-5" />
+			<label for="back-5" class="theme-picker-element">
+				<img src="./imgs/background-5.png" alt="Background Image Option">
+			</label>
+
+			<input type="checkbox" id="back-6" />
+			<label for="back-6" class="theme-picker-element">
+				<img src="./imgs/background-6.png" alt="Background Image Option">
+			</label>
 		</div>
+		<!-- <input type="checkbox" id="cb1" /> -->
+		<!-- <label id="pic-temp" for="cb1" src="https://picsum.photos/200/300">
+				<img src="http://placeimg.com/100/100/any" alt="some img">
+			</label> -->
 		<footer></footer>
 	</main>
-	
+
 	<script src="script.js"></script>
 </body>
+
 </html>
