@@ -3,6 +3,7 @@
 	--cells-number: 16px;
 	--color-blue: #457b9d;
 	--color-violet-dark: rgb(107,85,164);
+	--cells-color: rgb(107,85,164);
 }
 *, *::after, *::before {
 	box-sizing: border-box;
@@ -53,7 +54,7 @@ main {
 	background-position: center;
 
 	box-sizing: content-box;
-	border: 3px solid #A8DADC;
+	border: 5px solid #00000D;
 	border-radius: 10px;
 
 	width:  var(--grid-box-length);
@@ -70,7 +71,7 @@ main {
 	height: calc(var(--grid-box-length) / 16);
 	border: 0.5px solid rgba(0, 0, 0, 0.05);
 	border-radius: 20%;
-	background-color: var(--color-violet-dark);
+	background-color: var(--cells-color);
 }
 
 .clr-btn {
@@ -92,7 +93,7 @@ main {
 }
 
 label {
-	border: 1px solid green;
+	/* border: 1px solid green; */
 	font: 1rem 'Fira Sans', sans-serif;
 	padding: 5px;
 	/* margin-top: calc(50vh - (800px / 2)); */
@@ -170,4 +171,22 @@ input[type=checkbox]:checked + .theme-picker-element:after {
 .theme-picker-element:active {
 	top: 3px;
 	box-shadow: none;
+}
+
+footer {
+	border: 1px solid red;
+	margin-top: 3rem;
+
+	height: 40px;
+	width: 100%;
+	max-width: 800px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.me img {
+	width: 32px;
+	height: 32px;
 }
