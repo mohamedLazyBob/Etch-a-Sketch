@@ -13,14 +13,16 @@
 <body>
 	<main>
 		<!-- <label for="cells-num"> Cells Number <br> -->
-		<label for="cells-num">
+		<label for="cells-num" id="ranger-container">
 			<input type="range" name="Cells Counter" id="cells-num" min="4" max="60" step="2">
 		</label>
-		<div id="grid"></div>
+		<div class="grid-container">
+			<div id="grid"></div>
+		</div>
 		<button class="clr-btn" id='clrBtn'>Reset</button>
 		<div class="theme-picker">
 
-		<input type="checkbox" id="background-1" />
+			<input type="checkbox" id="background-1" />
 			<label for="background-1" class="theme-picker-element">
 				<img src="./imgs/background-1.png" alt="background Image Option">
 			</label>
@@ -37,7 +39,7 @@
 
 			<input type="checkbox" id="background-4" />
 			<label for="background-4" class="theme-picker-element">
-			<img src="./imgs/background-4.jpg" alt="Background Image Option">
+				<img src="./imgs/background-4.jpg" alt="Background Image Option">
 			</label>
 
 			<input type="checkbox" id="background-5" />
@@ -51,17 +53,19 @@
 			</label>
 		</div>
 		<footer>
-			<div class="me">
-				Made with love by 
-				<a href='https://github.com/mohamedlazybob' target="_blank">
-					<img src="./imgs/GitHub-Mark-Light-120px-plus.png" alt="github link">
-				</a>
-			</div>
-			<div class="icons-designer">
-				all the pictures that i use here, are stolen form this great man
-				<a href="#">
-					<img src="./imgs/drible.ico" alt="designer link">
-				</a>
+			<div class='footer-flex'>
+				<div class="me">
+					<span> Made with love by </span>
+					<a href='https://github.com/mohamedlazybob' target="_blank">
+						<img src="./imgs/GitHub-Mark-Light-120px-plus.png" alt="github link">
+					</a>
+				</div>
+				<div class="icons-designer">
+					<span>all the pictures that i use here, are stolen form this great man</span>
+					<a href="https://dribbble.com/Bousetta">
+						<img src="./imgs/Dribbble-Ball-Icon.svg" alt="designer link">
+					</a>
+				</div>
 			</div>
 		</footer>
 	</main>

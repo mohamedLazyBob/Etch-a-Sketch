@@ -1,6 +1,7 @@
 :root {
-	--grid-box-length: 800px;
-	--cells-number: 16px;
+	--grid-box-length: 800.0px; /* grid maxwidth */
+	--cells-number: 3.0; /* defauls cells number */
+	--cell-length: calc(var(--grid-box-length) / var(--cells-number));
 	--color-blue: #457b9d;
 	--color-violet-dark: rgb(107,85,164);
 	--cells-color: rgb(107,85,164);
@@ -23,6 +24,8 @@ body {
 	box-sizing: border-box;
 	height: 100%;
 	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
 	
 	overflow: auto;
 	position: relative;
@@ -30,11 +33,12 @@ body {
 
 
 main {
-	/* border: 2px solid yellow; */
+	/* border: 3px solid yellowgreen; */
 	box-sizing: border-box;
 
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	align-items: center;
 
 	height: 100%;
@@ -42,10 +46,30 @@ main {
 	overflow: auto;
 }
 
-@media all and (min-height: 1100px) {
+@media all and (max-height: 1100px) {
 	main {
-		justify-content: center;
+		justify-content: start;
+		/* border: 3px solid red; */
 	}
+}
+
+#ranger-container {
+	/* border: 4px solid yellow; */
+	font: 1rem 'Fira Sans', sans-serif;
+
+	padding: 0 2rem;
+	width: 100%;
+
+	display: block;
+	text-align: center;
+}
+
+.grid-container {
+	/* border: 2px solid yellow; */
+	box-sizing: border-box;
+	position: relative;
+	width: 100%;
+	padding-top: 100%;
 }
 
 #grid {
@@ -53,12 +77,21 @@ main {
 	background-repeat: no-repeat;
 	background-position: center;
 
-	box-sizing: content-box;
+	/* box-sizing: content-box; */
 	border: 5px solid #00000D;
 	border-radius: 10px;
 
-	width:  var(--grid-box-length);
-	height: var(--grid-box-length);
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	/* width: calc(100%  - 20px);minus the border of the grid */
+	/* height: ; */
+	/* max-height: var(--grid-box-length); */
+	/* max-width:  calc(var(--grid-box-length) - 10px); */
+
 	padding: 1px;
 	margin: 0 auto ;
 
@@ -67,8 +100,8 @@ main {
 }
 
 .cell {
-	width:  calc(var(--grid-box-length) / 16);
-	height: calc(var(--grid-box-length) / 16);
+	width:  var(--cell-length);
+	height: var(--cell-length);
 	border: 0.5px solid rgba(0, 0, 0, 0.05);
 	border-radius: 20%;
 	background-color: var(--cells-color);
@@ -92,34 +125,24 @@ main {
 	outline: none;
 }
 
-label {
-	/* border: 1px solid green; */
-	font: 1rem 'Fira Sans', sans-serif;
-	padding: 5px;
-	/* margin-top: calc(50vh - (800px / 2)); */
-	/* border: 1px solid green; */
-	display: block;
-	text-align: center;
-}
-
-#cells-num {
-	width: var(--grid-box-length);
-}
 /* ------------------------------------------------------- */
 .theme-picker {
-	/* width: 100vw; */
-	height: 100px;
-	margin: 0 auto;
+	padding: 1rem;
+
 	box-sizing: border-box;
 
-	/* border: 1px solid red;	 */
+	/* border: 3px solid yellow;	 */
 
 	display: flex;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	/* align-items: center; */
+	align-content: center;
 }
 
 .theme-picker img {
-	width: 150px;
+	width: 100px;
+	height: auto;
 }
 
 /* ------------------------------------------------------- */
@@ -132,20 +155,22 @@ input[type=checkbox] {
 input[type=checkbox]:checked + .theme-picker-element:after {
 	transform: scale(4.2);
 }
-  
+
 .theme-picker-element{
 	outline: none;
 	-webkit-user-select: none;
-	   -moz-user-select: none;
-		-ms-user-select: none;
-			user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 	color: #000;
+	/* border: 2px solid red; */
+	box-sizing: border-box;
 	font-family: "Lato", sans-serif;
 	font-size: 2.5rem;
 	letter-spacing: 0.04rem;
 	/* padding: 1.5rem 3rem; */
-	margin-right: 1rem;
-	padding: 0px 0px;
+	margin-bottom: 1rem;
+	/* padding: 0px 0px; */
 	cursor: pointer;
 	border-radius: 0.4rem;
 	/* border: 0.3rem solid #000; */
@@ -153,6 +178,12 @@ input[type=checkbox]:checked + .theme-picker-element:after {
 	position: relative;
 	overflow: hidden;
 	box-shadow: 0 3px 0 0 #000;
+}
+
+@media all and (min-width: 641px) {
+	.theme-picker-element {
+		margin-right: 1rem;
+	}
 }
 
 .theme-picker-element::after {
@@ -173,20 +204,46 @@ input[type=checkbox]:checked + .theme-picker-element:after {
 	box-shadow: none;
 }
 
+/* ------------------------------------------------------------------------ */
 footer {
+	/* position: absolute; */
+	/* bottom: 0; */
+}
+
+.footer-flex {
 	border: 1px solid red;
 	margin-top: 3rem;
-
-	height: 40px;
+	color:#f0f9ff;
+	background-color:#282d32;
+	padding: 1rem;
+	
+	
+	box-sizing: border-box;
+	height: auto;
+	min-height: 100px;
 	width: 100%;
-	max-width: 800px;
+	/* min-width: 800px; */
+	border-radius: 10px;
 
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
-.me img {
+.me, .icons-designer {
+	/* border: 1px solid yellowgreen; */
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	height: auto;
+	padding: 1rem;
+}
+footer div span {
+	margin: 0 1rem;
+}
+
+footer img {
 	width: 32px;
 	height: 32px;
 }

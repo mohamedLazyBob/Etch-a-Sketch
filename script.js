@@ -1,7 +1,24 @@
-const gridContainerLength = 800;
+let gridContainerLength = 800;
 let cellsNumber = 3; // max of this is 64, more then it, it's not beatifull 
 let cellLength = gridContainerLength / cellsNumber;
 let cellCollor = 'rgb(107,85,164)';
+
+function getCellLenght() {
+	let winWidth = document.querySelector('#grid').clientWidth;
+
+	gridContainerLength = winWidth - 2;
+	cellLength = gridContainerLength / cellsNumber;
+
+	// select css elements
+	let root = document.documentElement;
+	root.style.setProperty('--grid-box-length', gridContainerLength + 'px');
+	// edit css elements
+}
+getCellLenght();
+
+// Attaching the event listener function to window's resize event
+window.addEventListener("resize", getCellLenght);
+
 
 grid.addEventListener('mouseover', e => {
 	if (e.target.className === 'cell') {
@@ -84,3 +101,7 @@ btns.forEach(element => {
 		uncheckThumbnails(e.target.id);
 	});
 });
+
+
+// responsive 
+
