@@ -13,8 +13,10 @@
 }
 html {
 	/* border: 2px solid red; */
-	height: 100%;
+	height: 100vh;
 	overflow: auto;
+	display: flex;
+	justify-content: center;
 }
 
 body {
@@ -22,12 +24,12 @@ body {
 	/* background-position-x: center; */
 	
 	box-sizing: border-box;
-	height: 100%;
+	height: 100vh;
 	width: 100%;
 	max-width: 1000px;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	
-	overflow: auto;
+	/* overflow: auto; */
 	position: relative;
 }
 
@@ -43,7 +45,7 @@ main {
 
 	height: 100%;
 	width: 100%;
-	overflow: auto;
+	/* overflow: auto; */
 }
 
 @media all and (max-height: 1100px) {
@@ -164,20 +166,22 @@ input[type=checkbox]:checked + .theme-picker-element:after {
 	user-select: none;
 	color: #000;
 	/* border: 2px solid red; */
+	border: .5px solid rgba(0, 0, 0, 0.5);
 	box-sizing: border-box;
-	font-family: "Lato", sans-serif;
-	font-size: 2.5rem;
-	letter-spacing: 0.04rem;
+	/* font-family: "Lato", sans-serif; */
+	/* font-size: 2.5rem; */
+	/* letter-spacing: 0.04rem; */
 	/* padding: 1.5rem 3rem; */
 	margin-bottom: 1rem;
 	/* padding: 0px 0px; */
 	cursor: pointer;
 	border-radius: 0.4rem;
 	/* border: 0.3rem solid #000; */
-	background: #fff;
+	/* background: #fff; */
 	position: relative;
 	overflow: hidden;
 	box-shadow: 0 3px 0 0 #000;
+	height: 75px;
 }
 
 @media all and (min-width: 641px) {
@@ -205,13 +209,15 @@ input[type=checkbox]:checked + .theme-picker-element:after {
 }
 
 /* ------------------------------------------------------------------------ */
+/*
 footer {
-	/* position: absolute; */
-	/* bottom: 0; */
+	position: absolute;
+	bottom: 0;
 }
+*/
 
 .footer-flex {
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	margin-top: 3rem;
 	color:#f0f9ff;
 	background-color:#282d32;
@@ -222,6 +228,7 @@ footer {
 	height: auto;
 	min-height: 100px;
 	width: 100%;
+	/* width: 100vh; */
 	/* min-width: 800px; */
 	border-radius: 10px;
 
